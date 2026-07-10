@@ -1,0 +1,11 @@
+{:itonami.blueprint/id "cloud-itonami-isic-4641"
+ :itonami.blueprint/name "Wholesale of textiles, clothing and footwear"
+ :itonami.blueprint/isic-rev5 "4641"
+ :itonami.blueprint/domain :downstream/textile-wholesale
+ :itonami.blueprint/license "AGPL-3.0-or-later"
+ :itonami.blueprint/social-impact [:human-rights :labor-rights :transparency]
+ :itonami.blueprint/governor :textile-trading-governor
+ :itonami.blueprint/required-technologies [:robotics :identity :forms :dmn :bpmn :audit-ledger :optimization]
+ :itonami.blueprint/status :public-oss
+ :itonami.blueprint/robotics true
+ :itonami.blueprint/maturity :implemented}
