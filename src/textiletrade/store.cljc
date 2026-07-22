@@ -48,10 +48,9 @@
   or an operator trusting a textile-wholesale actor needs, and the
   evidence an operator needs if a dispatch or an invoice is later
   disputed."
-  (:require #?(:clj  [clojure.edn :as edn]
-               :cljs [cljs.reader :as edn])
-            [textiletrade.registry :as registry]
-            [langchain.db :as d]))
+  (:require [textiletrade.registry :as registry]
+            [langchain.db :as d]
+            [langchain-store.core :as ls]))
 
 (defprotocol Store
   (textile-order [s id])
@@ -253,8 +252,8 @@
    :dispatch-sequence/jurisdiction       {:db/unique :db.unique/identity}
    :invoice-sequence/jurisdiction        {:db/unique :db.unique/identity}})
 
-(defn- enc [v] (pr-str v))
-(defn- dec* [s] (when s (edn/read-string s)))
+(defn- enc [v] (ls/enc v))
+(defn- dec* [s] (ls/dec* s))
 
 ;; Every textile-order field is stored as its own Datomic attr so a
 ;; governor pull reads the exact ground truth (no blob decode). Boolean
