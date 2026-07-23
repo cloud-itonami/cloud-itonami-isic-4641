@@ -82,6 +82,13 @@
           :provenance "https://www.zoll.de/"
           :required-evidence ["credit-clearance record"
                               "contract/PO"
+                              "sanctions-screening (OFAC/equivalent) record"]}
+   "BGD" {:name "BGD"
+          :owner-authority "National Board of Revenue (NBR) / জাতীয় রাজস্ব বোর্ড, under the Internal Resources Division, Ministry of Finance -- \"Board\" as defined at Customs Act, 2023 s.2(38)"
+          :legal-basis "কাস্টমস আইন, ২০২৩ (Customs Act, 2023, Act No. 57 of 2023, enacted 13 November 2023, repealing the Customs Act, 1969 (Act No. IV of 1969)) -- brought into force 6 June 2024 by S.R.O. No. 153-Law/2024, dated 28 May 2024, per s.1(2)"
+          :provenance "http://bdlaws.minlaw.gov.bd/act-1476.html"
+          :required-evidence ["credit-clearance record"
+                              "contract/PO"
                               "sanctions-screening (OFAC/equivalent) record"]}})
 
 (def flagged-origins
