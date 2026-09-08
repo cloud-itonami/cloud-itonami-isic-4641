@@ -29,7 +29,7 @@
   a real invoice itself (that is `textiletrade.operation`'s `:delivery/
   dispatch`/`:invoice/settle`, always human-gated -- see README
   `Actuation`)."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (defn- unsigned-certificate
   "Every certificate this actor produces is UNSIGNED -- signature is
@@ -65,7 +65,7 @@
     (throw (ex-info "textile-dispatch: jurisdiction required" {})))
   (when (< sequence 0)
     (throw (ex-info "textile-dispatch: sequence must be >= 0" {})))
-  (let [dispatch-number (str (str/upper-case jurisdiction) "-DISPATCH-" (zero-pad sequence 6))
+  (let [dispatch-number (str (str/upper jurisdiction) "-DISPATCH-" (zero-pad sequence 6))
         record {"record_id" dispatch-number
                 "kind" "textile-dispatch-draft"
                 "textile_order_id" textile-order-id
@@ -91,7 +91,7 @@
     (throw (ex-info "textile-invoice: jurisdiction required" {})))
   (when (< sequence 0)
     (throw (ex-info "textile-invoice: sequence must be >= 0" {})))
-  (let [invoice-number (str (str/upper-case jurisdiction) "-INVOICE-" (zero-pad sequence 6))
+  (let [invoice-number (str (str/upper jurisdiction) "-INVOICE-" (zero-pad sequence 6))
         record {"record_id" invoice-number
                 "kind" "textile-invoice-draft"
                 "textile_order_id" textile-order-id
