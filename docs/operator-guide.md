@@ -111,7 +111,7 @@ presumption suppressed or waved through without genuine rebuttal
 evidence, a sanctions screening suppressed to force a dispatch through,
 or an invoice posted without a human sign-off.
 
-## Feel the Decision Gate: `clojure -M:dev:run`
+## Feel the Decision Gate: `kbb -M:dev:run`
 
 This vertical has no companion playable prototype. The fastest hands-on
 way to feel why the `:textile-trading-governor` gate exists -- and why

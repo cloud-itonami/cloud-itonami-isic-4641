@@ -1,5 +1,5 @@
 (ns textiletrade.sim
-  "Demo driver -- `clojure -M:dev:run`. Walks a clean textile-order
+  "Demo driver -- `kbb -M:dev:run`. Walks a clean textile-order
   through intake -> supply-chain verification -> textile/apparel/
   footwear goods dispatch (escalate/approve/commit) -> invoice
   settlement (escalate/approve/commit), then shows HARD-hold scenarios:
