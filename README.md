@@ -155,9 +155,9 @@ invoice proposal still always routes to a human.
 ## Run
 
 ```bash
-clojure -M:dev:run     # walk one clean dispatch + invoice lifecycle, six HARD-hold cases, and two forced-labor control scenarios, through the actor
-clojure -M:dev:test    # governor contract · phase invariants · store parity · registry conformance · facts coverage
-clojure -M:lint        # clj-kondo (errors fail; CI mirrors this)
+kbb -M:dev:run     # walk one clean dispatch + invoice lifecycle, six HARD-hold cases, and two forced-labor control scenarios, through the actor
+kbb -M:dev:test    # governor contract · phase invariants · store parity · registry conformance · facts coverage
+kbb -M:lint        # clj-kondo (errors fail; CI mirrors this)
 ```
 
 ## Robotics premise

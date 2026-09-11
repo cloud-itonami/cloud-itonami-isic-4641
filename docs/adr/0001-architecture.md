@@ -441,7 +441,7 @@ precedent.
 - `MemStore` || `DatomicStore` parity is proven by
   `test/textiletrade/store_contract_test.cljk`.
 - 44 tests / 202 assertions pass; lint is clean; the demo
-  (`clojure -M:dev:run`) walks one clean dispatch + invoice lifecycle,
+  (`kbb -M:dev:run`) walks one clean dispatch + invoice lifecycle,
   five HARD-hold scenarios (no spec-basis, credit-uncleared, contract-
   missing, forced-labor-presumption-unrebutted, sanctions, double
   dispatch, double invoice), PLUS two control scenarios (the SAME
