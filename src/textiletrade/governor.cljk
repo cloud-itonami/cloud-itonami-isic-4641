@@ -232,7 +232,7 @@
   non-flagged origin/entity (there is no presumption to rebut), and for a
   FLAGGED origin/entity it does NOT fire when BOTH rebuttal facts are
   true -- the presumption is genuinely REBUTTABLE, not a blanket
-  regional ban. `test/textiletrade/governor_contract_test.clj`'s
+  regional ban. `test/textiletrade/governor_contract_test.cljk`'s
   `forced-labor-presumption-is-genuinely-rebuttable-not-a-blanket-ban`
   proves this directly: the SAME flagged-origin order HOLDS with no
   rebuttal evidence on file and dispatches cleanly (still always

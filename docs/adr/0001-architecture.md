@@ -224,7 +224,7 @@ unrebutted`; `to-7` (the IDENTICAL Xinjiang origin and USA jurisdiction,
 BOTH rebuttal facts documented) dispatches CLEANLY, still always
 escalating for the ordinary human sign-off -- proving the check
 genuinely implements a rebuttable presumption, not a per-origin ban.
-`test/textiletrade/governor_contract_test.clj`'s
+`test/textiletrade/governor_contract_test.cljk`'s
 `forced-labor-presumption-is-genuinely-rebuttable-not-a-blanket-ban` and
 `forced-labor-check-is-jurisdiction-gated-not-a-blanket-regional-ban`
 encode both proofs as executable tests.
@@ -295,7 +295,7 @@ discipline every prior governor's guards establish, informed by
 `textiletrade.store/Store` is implemented by both `MemStore` (atom-
 backed, default for dev/tests/demo) and `DatomicStore` (`langchain.db`-
 backed), proven to satisfy the same contract in
-`test/textiletrade/store_contract_test.clj`. The ledger stays
+`test/textiletrade/store_contract_test.cljk`. The ledger stays
 append-only on every backend: which textile-order was verified for a
 jurisdiction with no official spec-basis, which counterparty had
 credit-uncleared / no contract / an unrebutted forced-labor presumption
@@ -436,10 +436,10 @@ precedent.
 - Faithfully models a REBUTTABLE PRESUMPTION (not a simple missing-
   certificate check, and not a blanket regional ban): proven directly by
   the bundled demo's `to-6`/`to-7` pair and
-  `test/textiletrade/governor_contract_test.clj`'s
+  `test/textiletrade/governor_contract_test.cljk`'s
   `forced-labor-presumption-is-genuinely-rebuttable-not-a-blanket-ban`.
 - `MemStore` || `DatomicStore` parity is proven by
-  `test/textiletrade/store_contract_test.clj`.
+  `test/textiletrade/store_contract_test.cljk`.
 - 44 tests / 202 assertions pass; lint is clean; the demo
   (`clojure -M:dev:run`) walks one clean dispatch + invoice lifecycle,
   five HARD-hold scenarios (no spec-basis, credit-uncleared, contract-
