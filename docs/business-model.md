@@ -83,7 +83,7 @@ ISIC 4641) and to the three `:social-impact` tags in `blueprint.edn`
 (`:human-rights`, `:labor-rights`, `:transparency`).
 
 This is the rule the companion contract test
-(`test/textiletrade/governor_contract_test.clj`) encodes end-to-end: the
+(`test/textiletrade/governor_contract_test.cljk`) encodes end-to-end: the
 TextileTradeAdvisor never dispatches goods to a counterparty or settles
 an invoice the Textile Trading Governor would reject, `:delivery/
 dispatch` and `:invoice/settle` NEVER auto-commit at any phase,

@@ -88,7 +88,7 @@ enforce this (`textiletrade.governor`'s `:delivery/dispatch`/
 `:invoice/settle` high-stakes gate and `textiletrade.phase`'s phase
 table, which never puts either op in any phase's `:auto` set) -- see
 `textiletrade.phase`'s docstring and
-`test/textiletrade/phase_test.clj`'s
+`test/textiletrade/phase_test.cljk`'s
 `delivery-dispatch-never-auto-at-any-phase`/
 `invoice-settle-never-auto-at-any-phase`. The actor may draft, check and
 recommend; a human trading supervisor is always the one who actually
@@ -114,7 +114,7 @@ models this faithfully: `forced-labor-presumption-unrebutted-violations`
 does not fire at all for a non-flagged origin/entity, and for a FLAGGED
 origin/entity it does not fire once BOTH a documented supply-chain trace
 AND a clear-and-convincing rebuttal evidence dossier are on file --
-proven directly in `test/textiletrade/governor_contract_test.clj`'s
+proven directly in `test/textiletrade/governor_contract_test.cljk`'s
 `forced-labor-presumption-is-genuinely-rebuttable-not-a-blanket-ban` and
 the bundled demo (`to-6` HOLDS with no rebuttal evidence; `to-7`, the
 SAME Xinjiang origin, dispatches cleanly once both rebuttal facts are
@@ -211,14 +211,14 @@ robotics/identity/forms/dmn/bpmn/audit-ledger stack.
 
 | File | Role |
 |---|---|
-| `src/textiletrade/store.cljc` | **Store** protocol -- `MemStore` ‖ `DatomicStore` (`langchain.db`) + append-only audit ledger + dispatch AND invoice history (dual history). The double-actuation guard checks dedicated `:dispatched?`/`:invoiced?` booleans rather than a `:status` value |
-| `src/textiletrade/registry.cljc` | Dispatch/invoice draft records (record construction only -- the Textile Trading Governor's checks are direct entity booleans, so there are no pure range-check functions to host here) |
-| `src/textiletrade/facts.cljc` | Per-jurisdiction customs/sanctions catalog with an official spec-basis citation per entry, PLUS a separate forced-labor import-ban-basis catalog (UFLPA/CAATSA), honest coverage reporting |
-| `src/textiletrade/textiletradeadvisor.cljc` | **TextileTradeAdvisor** -- `mock-advisor` ‖ `llm-advisor`; intake/supply-chain-verification/dispatch/invoice proposals |
-| `src/textiletrade/governor.cljc` | **Textile Trading Governor** -- 6 HARD checks (spec-basis · evidence-incomplete · credit-uncleared · contract-missing · forced-labor-presumption-unrebutted · counterparty-sanctions-flag-unresolved) + 2 double-actuation guards + 1 soft (confidence/actuation gate) |
-| `src/textiletrade/phase.cljc` | **Phase 0→3** -- read-only → assisted intake → assisted verify → supervised (dispatch/invoice always human; order intake is the ONLY auto-eligible op, no direct capital risk) |
-| `src/textiletrade/operation.cljc` | **OperationActor** -- langgraph StateGraph |
-| `src/textiletrade/sim.cljc` | demo driver |
+| `src/textiletrade/store.cljk` | **Store** protocol -- `MemStore` ‖ `DatomicStore` (`langchain.db`) + append-only audit ledger + dispatch AND invoice history (dual history). The double-actuation guard checks dedicated `:dispatched?`/`:invoiced?` booleans rather than a `:status` value |
+| `src/textiletrade/registry.cljk` | Dispatch/invoice draft records (record construction only -- the Textile Trading Governor's checks are direct entity booleans, so there are no pure range-check functions to host here) |
+| `src/textiletrade/facts.cljk` | Per-jurisdiction customs/sanctions catalog with an official spec-basis citation per entry, PLUS a separate forced-labor import-ban-basis catalog (UFLPA/CAATSA), honest coverage reporting |
+| `src/textiletrade/textiletradeadvisor.cljk` | **TextileTradeAdvisor** -- `mock-advisor` ‖ `llm-advisor`; intake/supply-chain-verification/dispatch/invoice proposals |
+| `src/textiletrade/governor.cljk` | **Textile Trading Governor** -- 6 HARD checks (spec-basis · evidence-incomplete · credit-uncleared · contract-missing · forced-labor-presumption-unrebutted · counterparty-sanctions-flag-unresolved) + 2 double-actuation guards + 1 soft (confidence/actuation gate) |
+| `src/textiletrade/phase.cljk` | **Phase 0→3** -- read-only → assisted intake → assisted verify → supervised (dispatch/invoice always human; order intake is the ONLY auto-eligible op, no direct capital risk) |
+| `src/textiletrade/operation.cljk` | **OperationActor** -- langgraph StateGraph |
+| `src/textiletrade/sim.cljk` | demo driver |
 | `test/textiletrade/*_test.clj` | governor contract · phase invariants · store parity · registry conformance · facts coverage |
 
 ## Business-process coverage (honest)
