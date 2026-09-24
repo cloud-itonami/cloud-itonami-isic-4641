@@ -1,5 +1,5 @@
 (ns textiletrade.registry-test
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [textiletrade.registry :as r]))
 
 ;; The textile-trading domain checks (credit-clearance, contract-on-file,
