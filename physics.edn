@@ -1,0 +1,33 @@
+;; What this vertical's robot physically does, declared for
+;; kotoba.robotics.process (kotoba-lang/robotics). `kbb -M:dev:physics` runs it.
+;;
+;; README "Robotics premise": a garment-on-hanger sortation conveyor picks
+;; hanging apparel and a pick-to-light/AS-RS robot picks boxed footwear and
+;; folded textiles at the wholesale warehouse (ISIC 4641). The physical
+;; work: an arm picking footwear cartons into the outbound case, and an AMR
+;; towing a loaded garment-on-hanger rack whose load hangs high.
+;;
+;; Every number without a cited source is marked `estimate` in its :basis.
+;; Replacing an estimate with a sourced value is this bot's growth work.
+{:physics/schema "itonami.physical-ai.spec.v1"
+ :repo "cloud-itonami/cloud-itonami-isic-4641"
+ :cases
+ [{:id :pick-footwear-carton
+   :kind :manipulator
+   :procedure "picking arm lifts a footwear carton out of the AS/RS tote and places it into the outbound shipping case"
+   :params {:l1-m 0.50 :l2-m 0.45 :m1-kg 5.0 :m2-kg 3.5
+            :from [0.60 0.00] :to [0.25 0.60] :duration-s 1.5 :steps 400}
+   :sweep {:param :payload-kg :values [1.0 3.0 6.0 10.0 15.0]}
+   :quantity :peak-tau1-nm
+   :limit {:max 110.0 :basis "estimate: continuous shoulder torque of a ~8 kg-payload picking arm"}
+   :boundary {:lo 0.2 :hi 50.0}}
+  {:id :goh-rack-amr-stop
+   :kind :transport
+   :procedure "AMR carries a garment-on-hanger rack loaded with 80 kg of hanging apparel (load centre 1.3 m up) to the dispatch lane and brakes to a stop"
+   :params {:mass-kg 150.0 :payload-kg 80.0 :distance-m 50.0 :v-max-mps 1.2 :a-max-mps2 0.5
+            :drive-force-n 300.0 :crr 0.015 :cog-height-m 0.30 :payload-cog-height-m 1.30
+            :support-half-length-m 0.30 :max-time-s 600.0}
+   :sweep {:param :brake-decel-mps2 :values [0.5 1.0 2.0 3.0 4.0]}
+   :quantity :min-tipover-margin
+   :limit {:min 0.4 :basis "estimate: stability reserve kept for the garments swinging forward on the rail when the AMR stops"}
+   :boundary {:lo 0.2 :hi 8.0}}]}
